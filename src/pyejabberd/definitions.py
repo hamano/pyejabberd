@@ -241,3 +241,12 @@ class StatsHost(API):
 
     def transform_response(self, api, arguments, response):
         return response.get('stat')
+
+class SendMessage(API):
+    method = 'send_message'
+    arguments = [StringArgument('type'),
+                 StringArgument('_from'), StringArgument('to'),
+                 StringArgument('subject'), StringArgument('body')]
+
+    def transform_response(self, api, arguments, response):
+        return response.get('res')
