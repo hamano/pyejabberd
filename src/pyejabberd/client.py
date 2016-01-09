@@ -454,6 +454,22 @@ class EjabberdAPIClient(contract.EjabberdAPIContract):
                               type=type, _from=_from, to=to,
                               subject=subject, body=body)
 
+    def privacy_set(self, user, host, xmlquery):
+        """
+        Send a IQ set privacy stanza for a local account
+
+        :param user: The Username
+        :type user: str|unicode
+        :param host: The XMPP_DOMAIN
+        :type host: str|unicode
+        :param xmlquery: xmlquery
+        :type xmlquery: str|unicode
+        :rtype: int
+        :return: responce code
+        """
+        return self._call_api(definitions.PrivacySet,
+                              user=user, host=host, xmlquery=xmlquery)
+
     def _validate_and_serialize_arguments(self, api, arguments):
         """
         Internal method to validate and serialize arguments

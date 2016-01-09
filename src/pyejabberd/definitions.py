@@ -256,3 +256,11 @@ class SendMessage(API):
 
     def transform_response(self, api, arguments, response):
         return response.get('res')
+
+class PrivacySet(API):
+    method = 'privacy_set'
+    arguments = [StringArgument('user'), StringArgument('host'),
+                 StringArgument('xmlquery')]
+
+    def transform_response(self, api, arguments, response):
+        return response.get('res')
