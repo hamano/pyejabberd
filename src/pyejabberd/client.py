@@ -470,6 +470,10 @@ class EjabberdAPIClient(contract.EjabberdAPIContract):
         return self._call_api(definitions.PrivacySet,
                               user=user, host=host, xmlquery=xmlquery)
 
+    def get_last(self, user, host):
+        return self._call_api(definitions.GetLast,
+                              user=user, host=host)
+
     def _validate_and_serialize_arguments(self, api, arguments):
         """
         Internal method to validate and serialize arguments

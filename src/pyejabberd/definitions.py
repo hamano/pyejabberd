@@ -264,3 +264,10 @@ class PrivacySet(API):
 
     def transform_response(self, api, arguments, response):
         return response.get('res')
+
+class GetLast(API):
+    method = 'get_last'
+    arguments = [StringArgument('user'), StringArgument('host')]
+
+    def transform_response(self, api, arguments, response):
+        return response.get('last_activity')
