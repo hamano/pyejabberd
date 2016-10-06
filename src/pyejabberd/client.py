@@ -474,6 +474,10 @@ class EjabberdAPIClient(contract.EjabberdAPIContract):
         return self._call_api(definitions.GetLast,
                               user=user, host=host)
 
+    def ban_account(self, user, host, reason):
+        return self._call_api(definitions.BanAccount,
+                              user=user, host=host, reason=reason)
+
     def _validate_and_serialize_arguments(self, api, arguments):
         """
         Internal method to validate and serialize arguments

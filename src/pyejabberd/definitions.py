@@ -271,3 +271,10 @@ class GetLast(API):
 
     def transform_response(self, api, arguments, response):
         return response.get('last_activity')
+
+class BanAccount(API):
+    method = 'ban_account'
+    arguments = [StringArgument('user'), StringArgument('host'), StringArgument('reason')]
+
+    def transform_response(self, api, arguments, response):
+        return response.get('res')
